@@ -1,0 +1,4 @@
+#!/bin/bash
+su -c "rm -rf /home/pizzadude/.cache/BraveSoftware && rm -rf /home/pizzadude/.cache/mozilla" pizzadude
+su -c "mkdir -p /tmp/cachetmp && mkdir -p /tmp/cachetmp/BraveSoftware && mkdir -p /tmp/cachetmp/mozilla" pizzadude
+su -c "mkdir -p /home/pizzadude/.cache/BraveSoftware && mkdir -p /home/pizzadude/.cache/mozilla" pizzadude

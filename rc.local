@@ -1,0 +1,31 @@
+#!/bin/sh -e
+#
+# rc.local
+#
+# This script is executed at the end of each multiuser runlevel.
+# Make sure that the script will "exit 0" on success or any other
+# value on error.
+#
+# In order to enable or disable this script just change the execution
+# bits.
+#
+# By default this script does nothing.
+
+
+/usr/local/bin/temp_throttle.sh 70 &
+
+modprobe wireguard
+
+umount /tmp/cachetmp/BraveSoftware &
+umount /tmp/cachetmp/mozilla &
+umount /home/pizzadude/.cache/BraveSoftware &
+umount /home/pizzadude/.cache/mozilla &
+
+
+/usr/local/bin/tmpcachecreate &
+
+mount -o bind /tmp/cachetmp/BraveSoftware /home/pizzadude/.cache/BraveSoftware &
+
+mount -o bind /tmp/cachetmp/mozilla /home/pizzadude/.cache/mozilla &
+
+exit 0
